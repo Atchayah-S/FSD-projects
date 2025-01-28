@@ -9,40 +9,16 @@
 <body>
     <div class="main">
         <h1>To-Do LIST</h1>
-        <form><label for="newTask">Add new task</label><br>
+       <div id="main1"> <form ><label for="newTask">Add new task</label><br>
             <input type="text" id="newTask" placeholder="Enter text to be added">
             <input type="date" id="day">
             <button id="add" onclick="showPrompt()">Add</button>
             <div id="prompt"></div>
             <br>
             <button id="view" onclick="showTasks()">View my tasks</button>
-        </form>
+        </form></div>
+        <div id="task"></div>
     </div>
-    <div id="task"></div>
-    <script>
-        function showPrompt(){
-            event.preventDefault();
-            addTask();
-            var container=document.getElementById("prompt");
-            var content=document.createElement('div');
-            content.innerHTML="<h3>"+"New task added!"+"</h3";
-            container.appendChild(content);
-            container.style.visibility="visible";
-        }
-        function addTask(){
-            var task_new=document.getElementById("newTask").value;
-            var date=document.getElementById("day").value;
-            var container=document.getElementById("task");
-            var content=document.createElement('div');
-            content.innerHTML="<h3>"+date+"</h3"+"<br>"+"<h4>"+task_new+"</h4>";
-            container.appendChild(content);
-console.log(task_new);
-        }
-        function showTasks(){
-            event.preventDefault();
-            // document.getElementsByClassName("main").style.visibility="hidden";
-            document.getElementById("task").style.visibility="visible";
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

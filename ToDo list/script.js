@@ -36,9 +36,9 @@ function addTask(){
     task_list.forEach(task=>{
         var content=document.createElement('div');
     content.innerHTML=`
-    <h3> ${task[0]}</h3>
+    <h2> ${task[0]}</h2>
     <ul>
-${task.slice(1).map(t => `<li>${t}</li>`).join('')}
+${task.slice(1).map(t => `<li><label for=${t}>${t}</label><input type="checkbox" id=${t}></li>`).join('')}
 </ul>
     `;
     container.appendChild(content);

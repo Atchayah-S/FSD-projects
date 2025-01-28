@@ -26,7 +26,12 @@ input[type="date"] {
 }
 label{
     font-size: xx-large;
+    margin: 0% 1%;
 } 
+input[type="checkbox"]{
+    width: 3vw;
+    height: 3vh;
+}
 h1{
     padding: 2%;
 }

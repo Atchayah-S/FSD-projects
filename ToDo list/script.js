@@ -1,4 +1,5 @@
 var task_list=[];
+var task_count=0;
 function showPrompt(){
     event.preventDefault();
     addTask();
@@ -28,19 +29,42 @@ function addTask(){
      else{
          task_list.push([date,tasks]);
      }
+     task_count=task_count+1;
     task_list.sort((a,b)=>{
      return a[0].localeCompare(b[0])
      });
     var container=document.getElementById("task");
-    container.innerHTML="";
+    container.innerHTML=`<h3 id="count"> Planned tasks: ${task_count}</h3>`;
     task_list.forEach(task=>{
         var content=document.createElement('div');
     content.innerHTML=`
-    <h2> ${task[0]}</h2>
-    <ul>
-${task.slice(1).map(t => `<li><label for=${t}>${t}</label><input type="checkbox" id=${t}></li>`).join('')}
+    <div class="task_entry">
+    <h2> ${task[0]}</h2>    <ul>
+${task.slice(1).map(t => `
+                    
+                        <label for="${t}" id="label-${t}">${t}</label>
+                        <input type="checkbox" id="${t}" onclick="completeTask('${t}')">
+                        <ion-icon name="trash" size="large"></ion-icon>
+                        <ion-icon name="create" size="large"></ion-icon>
+                    <br>`).join('')}
 </ul>
-    `;
+    </div>`;
     container.appendChild(content);
-    })
+    })   
+}
+function completeTask(t_id) {
+    var checkbox = document.getElementById(t_id);
+    var label = document.getElementById("label-" + t_id);
+    var count=document.getElementById("count");
+    if (checkbox.checked) {
+        label.style.textDecoration = "line-through";
+        label.style.backgroundColor = "green";
+        task_count=task_count-1;
+    }
+     else {
+        label.style.textDecoration = "none";
+        label.style.backgroundColor = "";   
+        task_count=task_count+1;
+    }
+    count.innerHTML=`<h3 id="count"> Planned tasks: ${task_count}</h3>`;
 }

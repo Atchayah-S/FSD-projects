@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+
     <title>To-Do list app</title>
 </head>
 <body>
@@ -17,8 +20,12 @@
             <br>
             <button id="view" onclick="showTasks()">View my tasks</button>
         </form></div>
-        <div id="task"></div>
+        <div id="task"> <h3>No Tasks planned yet!</h3>
+            <button style="background: transparent;border: none;"><ion-icon name="add-circle" size="large"></ion-icon></button>
+        </div>
     </div>
     <script src="script.js"></script>
+    <!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> -->
+
 </body>
 </html>
